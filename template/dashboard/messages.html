@@ -1,0 +1,22 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'custom.css' %}">
+
+
+
+
+<div class="col-lg-6 mt-5 alart_card">
+   <div class="alert alert-success wc_alart" role="alert">
+    <h4 class="alert-heading">Well done!</h4>
+    {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
+    <hr>
+    <button class="mes_btn"><a href="dashboard" class="mes_a">Go to dashboard</a></button>  
+</div>
+</div>
+
+
+
+{% endblock  %}

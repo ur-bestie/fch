@@ -1,0 +1,26 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'custom.css' %}">
+
+
+<div class="r_container">
+{% for r in x %}
+<div class="box">
+    <a href="/link_w">
+    <div class="box_container">
+        <img src="{{r.img.url}}" alt="">
+        <h4>{{r.title}}</h4>
+        <p>{{r.description}}</p>
+    </div>
+</a>
+</div>
+{% endfor %}
+
+
+</div>
+
+
+
+
+{% endblock %}

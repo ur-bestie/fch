@@ -1,0 +1,30 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'custom.css' %}">
+
+<form class="fund_form" action="" method="POST">
+    {% csrf_token %}
+<input type="text" value="{{a.cname}}" name="name"><br>
+<label for="">Your {{a.cname}} wallet address</label>
+<input type="text" name="waddress" required>
+<label for="">Amount</label>
+<input type="text" name="amount" required>
+<input class="fsubmit" type="submit" value="withdraw">
+</form>
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    {% if messages %}
+    {% for message in messages %}
+    swal({
+  title: "Good job!",
+  text: "{{message}}!",
+  icon: "{% if message.tags == "success" %}success{% elif message.tags == "error" %}error{% else %}info{% endif %}",
+  button: "ok",
+});
+    {% endfor %}
+    {% endif %}
+</script>
+{% endblock %}

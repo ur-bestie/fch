@@ -1,0 +1,71 @@
+.logo img{
+    width: 13rem;
+}
+header{
+    display: flex;
+    padding: 1rem 9%;
+    justify-content: space-between;
+    background-color: #1b8da0;
+    align-items: center;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+header button{
+display: none;
+}
+.nav_link{
+    color: black;
+    margin-left: 1rem;
+}
+.nav_link:hover{
+    color: white;
+}
+.auth_si{
+    margin-left: 5px;
+    background-color: white;
+    color: #1b8da0;
+    padding: 7px;
+    border-radius: 5px;
+}
+.auth_su{
+    margin-left: 5px;
+    background-color:dodgerblue;
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+}
+@media (max-width:770px){
+    header button{
+        display: block;
+        background: transparent;
+    }
+    nav{
+       
+        display: block;
+        inset: 0 0 0 30%;
+        background-color: white;
+        padding: min(5vh,10vh)2rem;
+        position: fixed;
+        transform: translateX(100%);
+        transition: transform 350ms ease;
+    }
+    .nav_link{ 
+      color: black; 
+      display: block; 
+      margin: 2rem 0 0 2rem ;
+    }
+    .auth_si{
+        background-color: #1b8da0;
+        width: 5rem;
+    }
+    .auth_su{
+        width: 10rem;
+    }
+    
+}
+.line img{
+    width: 1.5rem;
+}

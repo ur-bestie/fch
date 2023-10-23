@@ -1,0 +1,26 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'custom.css' %}">
+<form class="profilef" action="" method="POST">
+    {% csrf_token %}
+    <div class="container">
+        <div class="content">
+<div class="img">
+    <img src="{% static 'mfimg/user.png' %}" alt="profile" class="pui">
+    <input type="file" value="submit" name="img" class="submit">
+</div>
+
+<label for="">Full name</label>
+    <input type="text" placeholder="Myfullname" name="fullname"><br>
+
+    <label for="">Phone</label>
+    <input type="text" placeholder="phone"  name="phone"><br>
+
+<input type="submit" value="update" class="submit"><br><br>
+
+</div>
+</div>
+</form>
+
+{% endblock %}

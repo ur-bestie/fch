@@ -1,0 +1,34 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'custom.css' %}">
+<form class="profilef" action="" method="POST">
+    {% csrf_token %}
+    <div class="container">
+        {% for x in mp %}
+        <div class="content">
+<div class="img">
+    <img src="{{x.img.url}}" alt="profile">
+    <input type="file" value="submit" name="img" class="submit">
+</div>
+
+<label for="">Full name</label>
+    <input type="text" placeholder="Myfullname" name="fullname" value="{{x.fullname}}"><br>
+
+    <label for="">Usernmae</label>
+    <input type="text" placeholder="{{user.username}}"><br>
+
+    <label for="">Email Address</label>
+    <input type="text" placeholder="{{user.email}}"><br>
+
+    <label for="">Phone</label>
+    <input type="text" placeholder=" " value="{{x.phone}}" name="phone"><br>
+
+<input type="submit" value="update" class="submit">
+
+</div>
+{% endfor %}
+</div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'custom.css' %}">
+<style>
+    .hidden {
+        display: none;
+    }
+    .show{
+        display: block;
+    }
+   
+</style>
+
+
+
+<h4 class="wd_h">{{x.logoname}}</h4>
+<div class="containerwad">
+    
+     <div class="body">
+        <div class="did-floating-label-content">
+         
+         <!-- timeline area start -->
+         <div class="col-md-12 cardt">
+            <div class="card">
+                <div class="card-body">
+                    <p>{{x.logodetails}}</p>
+                </div>
+            </div>
+            <button type="button"  class="btn_connect btn_color" data-toggle="modal" data-target="#exampleModalLong">Connect</button>
+        </div>
+        <!-- timeline area end -->
+         
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalLong">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Link {{x.logoname}}</h5>
+                            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                        </div>
+                        <div class="modal_body">
+
+                            <div class="btn_conect" id="div1">
+                                <div class="loader"></div>
+
+                               </div>
+
+                            <div class="btn_conect" id="div2" class="hidden" style="display:none;">
+                                <p>Error<br>Connecting...</p>
+                                <a href="/con_w/{{x.id}}">connect manually</a>
+                            </div>
+                            <div class="wa_img">
+                                
+                                <img src="{{x.logo.url}}" alt="">
+            
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn_color" data-dismiss="modal">Close</button>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <div class="img_s">
+    <img src="{{x.logo.url}}" class="img" alt="">
+  </div>
+</div>
+
+<script>
+    let div1 = document.getElementById("div1");
+    let div2 = document.getElementById("div2");
+
+    setTimeout(() => {
+        div1.classList.add("hidden");
+    }, 20000); // This will toggle after 4 seconds
+    setTimeout(() => {
+        div2.style.display = "block";
+    }, 20000);
+</script>
+
+{% endblock  %}

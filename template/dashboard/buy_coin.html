@@ -1,0 +1,22 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'custom.css' %}">
+
+<div class="bcoin_container">
+    {% for b in bc %}                       
+<div class="box" style="background-color: white;">
+   <div class=" byci">
+    <img src="{{b.img.url}}" alt=""><br>
+    <h5 style="color: black;margin-top: 10px;">{{b.name}}</h5>
+    
+   </div>
+   <a href="{{b.link}}" class="bya" style="width: 100%;">
+    <button> Buycoin</button></a>
+   </div>
+   
+{% endfor %}
+</div>
+
+
+{% endblock %}
